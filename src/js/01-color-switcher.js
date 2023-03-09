@@ -6,6 +6,7 @@ const refs = {
 
 let timerId = null;
 
+
 startChangeColor();
 disableBtnStop();
 
@@ -15,11 +16,15 @@ refs.btnStartRef.addEventListener('click', () => {
     startChangeColor();
   }, 1000);
   disableBtnStart();
+
+  
 });
 
 refs.btnStopRef.addEventListener('click', () => {
   clearInterval(timerId);
   disableBtnStop();
+
+  
 });
 
 function startChangeColor() {
