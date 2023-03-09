@@ -9,7 +9,7 @@ disableBtnStop();
 
 refs.btnStartRef.addEventListener('click', () => {
   startChangeColor(); 
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
     startChangeColor();
   }, 1000);
   disableBtnStart();
