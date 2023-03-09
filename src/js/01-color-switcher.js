@@ -4,12 +4,14 @@ const refs = {
   btnStopRef: document.querySelector('button[data-stop]'),
 };
 
+let timerId = null;
+
 startChangeColor();
 disableBtnStop();
 
 refs.btnStartRef.addEventListener('click', () => {
   startChangeColor(); 
-  const timerId = setInterval(() => {
+  timerId = setInterval(() => {
     startChangeColor();
   }, 1000);
   disableBtnStart();
