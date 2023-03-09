@@ -6,17 +6,20 @@ const refs = {
 
 let currentBodyColor = getRandomHexColor();
 refs.bodyRef.style.backgroundColor = currentBodyColor;
+refs.btnStopRef.disabled = true;
 
 refs.btnStartRef.addEventListener('click', () => {
   timerId = setInterval(() => {
     refs.bodyRef.style.backgroundColor = getRandomHexColor();
   }, 1000);
   refs.btnStartRef.disabled = true;
+  refs.btnStopRef.disabled = false;
 });
 
 refs.btnStopRef.addEventListener('click', () => {
   clearInterval(timerId);
   refs.btnStartRef.disabled = false;
+  refs.btnStopRef.disabled = true;
 });
 
 function getRandomHexColor() {
