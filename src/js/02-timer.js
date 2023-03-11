@@ -71,8 +71,17 @@ function onBtnStart(event) {
  
   disableBtnStart();
   const timerId = setInterval(() => {
-  convertMs((deltaTime -= 1000));
 
+  let currentDeltaTime =  deltaTime -= 1000 ;
+  if(currentDeltaTime <= 0){
+    clearInterval(timerId);
+    currentDeltaTime = 0;
+  
+    alert('Time is over!');
+    setDefaults();
+  
+  }
+  convertMs(currentDeltaTime);
   }, 1000);
 }
 
