@@ -67,7 +67,7 @@ function convertMs(ms) {
 function onBtnStart(event) {
  
   disableBtnStart();
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
   convertMs((deltaTime -= 1000));
 
   }, 1000);
