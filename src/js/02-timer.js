@@ -21,6 +21,9 @@ let deltaTime = selectedDate - currentDate;
 
 setDefaults();
 
+
+
+
 function setDefaults() {
   refs.inputDateTime.addEventListener('change', onFpChange);
   checkSelectedData();
@@ -88,10 +91,14 @@ function changeTimeValues(days, hours, minutes, seconds ){
     const hoursField = document.querySelector('span[data-hours]');
     const minutesField = document.querySelector('span[data-minutes]');
     const secondsField = document.querySelector('span[data-seconds]');
-    daysField.textContent = days;
-    hoursField.textContent = hours;
-    minutesField.textContent = minutes;
-    secondsField.textContent = seconds;
+    daysField.textContent = pad(days);
+    hoursField.textContent = pad(hours);
+    minutesField.textContent = pad(minutes);
+    secondsField.textContent = pad(seconds);
     
 
 }
+
+function pad(value) {
+    return String(value).padStart(2, '0');
+  }
