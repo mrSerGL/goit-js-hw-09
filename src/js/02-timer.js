@@ -60,15 +60,16 @@ function convertMs(ms) {
   // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
-  console.log(days, hours, minutes, seconds);
-
-  return { days, hours, minutes, seconds };
+  changeTimeValues(days, hours, minutes, seconds);
+//   return { days, hours, minutes, seconds };
 }
 
 function onBtnStart(event) {
+ 
   disableBtnStart();
   timerId = setInterval(() => {
-    convertMs((deltaTime -= 1000));
+  convertMs((deltaTime -= 1000));
+
   }, 1000);
 }
 
@@ -80,4 +81,17 @@ function disableBtnStart() {
 function enableBtnStart() {
   refs.btnStartRef.disabled = false;
   refs.btnStartRef.addEventListener('click', onBtnStart);
+}
+
+function changeTimeValues(days, hours, minutes, seconds ){
+    const daysField = document.querySelector('span[data-days]');
+    const hoursField = document.querySelector('span[data-hours]');
+    const minutesField = document.querySelector('span[data-minutes]');
+    const secondsField = document.querySelector('span[data-seconds]');
+    daysField.textContent = days;
+    hoursField.textContent = hours;
+    minutesField.textContent = minutes;
+    secondsField.textContent = seconds;
+    
+
 }
