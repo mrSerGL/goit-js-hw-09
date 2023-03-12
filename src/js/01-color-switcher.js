@@ -7,7 +7,7 @@ const refs = {
 let timerId = null;
 
 
-startChangeColor();
+// startChangeColor();
 disableBtnStop();
 
 refs.btnStartRef.addEventListener('click', () => {
