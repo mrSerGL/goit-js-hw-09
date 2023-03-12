@@ -1,12 +1,18 @@
+
+
 input {
     position: absolute;
-    top: 10px;
-    left: 0;
+    top: 18px;
+    left: -200px; 
     transform: translateX(100%);
+    width: 190px;
 } 
 
 label {
     position: relative;
+    margin-top: 28px;
+    margin-left: 4px;
+
 }
 
 
@@ -14,3 +20,22 @@ label {
     display: flex;
     flex-direction: column;
 }
+
+button {
+    cursor: pointer;
+  
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+  
+    border-radius: 4px;
+
+margin-top: 40px;
+
+  }
+  
+  button:hover,
+  button:focus {
+    border-color: #212121;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+  }
