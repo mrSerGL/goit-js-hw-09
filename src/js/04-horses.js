@@ -1,3 +1,5 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const horses = [
   'Secretariat',
   'Eclipse',
@@ -42,10 +44,12 @@ Promise.all(promises)
 }
 
 function startHorse(horse) {
+    // Notify.success(`${horse} start`);
     return new Promise((resolve, reject) => {
-      const time = getRandomTime(1000, 3000);
+      const time = getRandomTime(1000, 4000);
   
       setTimeout(() => {
+        Notify.success(`${horse} finished`);
         resolve({ horse, time });
         reject({ horse, time });
       }, time);
@@ -61,17 +65,23 @@ function sortResults(data) {
 }
 
 function createTrMarkUp(raceResults) {
-    refs.tebleBody.innerHTML = "";
+
+    setTimeout(() => {
+        refs.tebleBody.innerHTML = "";
  
-    raceResults.map((item, index) => {
-    const trMarkUp = `<tr><td>${index+1}</td><td>${item.horse}</td><td>${item.time}</td></tr>`;
-   
-    refs.tebleBody.insertAdjacentHTML('beforeend', trMarkUp);
-  });
+        raceResults.map((item, index) => {
+        const trMarkUp = `<tr><td>${index+1}</td><td>${item.horse}</td><td>${item.time}</td></tr>`;
+       
+        refs.tebleBody.insertAdjacentHTML('beforeend', trMarkUp);
+      });
+    }, 700);
+
  
 }
 
 function raceStarted() {
+    refs.tebleBody.innerHTML = "";
+    Notify.failure(`START`);
    refs.progressField.textContent =    'Заїзд почався, ставки не приймаются!';
 }
 
@@ -83,7 +93,3 @@ function raceFinished() {
 }
 
 
-// console.log(results
-//   '%c заезд начался, ставки не принимаются!',
-//   'coror: green; font-size: 14px;'
-// );
