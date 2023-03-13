@@ -1,11 +1,11 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const horses = [
-  'Secretariat',
-  'Eclipse',
-  'West Australian',
-  'Flying Fox',
-  'Seabiscuit',
+  'Бучифаль',
+  'Осадок',
+  'Волчьясыть',
+  'Дрысак',
+  'Кабысдох',
 ];
 
 const refs = {
