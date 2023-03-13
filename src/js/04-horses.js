@@ -13,6 +13,9 @@ const refs = {
   tebleBody: document.querySelector('.js-results-table > tbody'),
 };
 
+
+
+
 let raceResults;
 
 refs.startBtn.addEventListener('click', onStart);
@@ -31,6 +34,7 @@ Promise.all(promises)
     
     raceResults = results;
     raceFinished();
+
 
     
   })
@@ -56,28 +60,27 @@ function sortResults(data) {
   return data.sort((a, b) => a.time - b.time);
 }
 
-function createTrMarkUp(data) {
-  data.map((index, horse, time) => {
-    const trMarkUp = `
-    <tr>
-           <th>${index}</th>
-           <th>${horse}</th>
-           <th>${time}</th>
-         </tr>
-    `;
+function createTrMarkUp(raceResults) {
+
+ 
+    raceResults.map((item, index) => {
+    const trMarkUp = `<tr><td>${index+1}</td><td>${item.horse}</td><td>${item.time}</td></tr>`;
+    console.log(trMarkUp);
+    console.log(refs.tebleBody);
+    
+    refs.tebleBody.insertAdjacentHTML('beforeend', trMarkUp);
   });
+ 
 }
 
 function raceStarted() {
-
    refs.progressField.textContent =    'Заїзд почався, ставки не приймаются!';
-
-  
-  }
+}
 
 function raceFinished() {
       
     refs.progressField.textContent = `Заїзд закінчівся, переміг ${raceResults[0].horse} з часом ${raceResults[0].time} ms. ` ; 
+    createTrMarkUp(raceResults);
        
 }
 
