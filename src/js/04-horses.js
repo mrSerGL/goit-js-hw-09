@@ -22,15 +22,19 @@ function onStart() {
     // const promises = horses.map(horse =>startHorse(horse));
 const promises = horses.map(startHorse); // сокращенная запись строки сверху
 
+raceStarted();
+
 Promise.all(promises)
   .then(results => {
     console.table(sortResults(results));
-    console.log(`заезд окончен, победитель ${results[0].horse}!`);
+    // console.log(`заезд окончен, победитель ${results[0].horse}!`);
+    
     raceResults = results;
-    console.log(raceResults);
+    raceFinished();
+
     
   })
-  .catch(trouble => console.log(`its some trouble`));
+  .catch(trouble => console.log(`we have trouble`));
 }
 
 function startHorse(horse) {
@@ -63,6 +67,20 @@ function createTrMarkUp(data) {
     `;
   });
 }
+
+function raceStarted() {
+
+   refs.progressField.textContent =    'Заїзд почався, ставки не приймаются!';
+
+  
+  }
+
+function raceFinished() {
+      
+    refs.progressField.textContent = `Заїзд закінчівся, переміг ${raceResults[0].horse} з часом ${raceResults[0].time} ms. ` ; 
+       
+}
+
 
 // console.log(results
 //   '%c заезд начался, ставки не принимаются!',
