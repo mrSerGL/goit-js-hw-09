@@ -74,7 +74,7 @@ function createTrMarkUp(raceResults) {
        
         refs.tebleBody.insertAdjacentHTML('beforeend', trMarkUp);
       });
-    }, 700);
+    }, 2000);
 
  
 }
