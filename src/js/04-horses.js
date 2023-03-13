@@ -61,13 +61,11 @@ function sortResults(data) {
 }
 
 function createTrMarkUp(raceResults) {
-
+    refs.tebleBody.innerHTML = "";
  
     raceResults.map((item, index) => {
     const trMarkUp = `<tr><td>${index+1}</td><td>${item.horse}</td><td>${item.time}</td></tr>`;
-    console.log(trMarkUp);
-    console.log(refs.tebleBody);
-    
+   
     refs.tebleBody.insertAdjacentHTML('beforeend', trMarkUp);
   });
  
