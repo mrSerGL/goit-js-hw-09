@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const refs = {
   inputDateTime: document.querySelector('#datetime-picker'),
@@ -40,7 +41,12 @@ function checkSelectedData() {
 
   if (deltaTime < 0) {
     disableBtnStart();
-    alert('Please choose a date in the future');
+    // alert('Please choose a date in the future');
+    Report.warning(
+      'Warning',
+      'Please choose a date in the future',
+      'Ok',
+      );
   } else {
     enableBtnStart();
     convertMs(deltaTime);
@@ -77,7 +83,12 @@ function onBtnStart(event) {
     clearInterval(timerId);
     currentDeltaTime = 0;
   
-    alert('Time is over!');
+    // alert('Time is over!');
+    Report.info(
+      'Info',
+      'Time is over!',
+      'Ok',
+      );
     setDefaults();
   
   }
