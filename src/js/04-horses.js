@@ -83,12 +83,14 @@ function raceStarted() {
     refs.tebleBody.innerHTML = "";
     Notify.failure(`START`);
    refs.progressField.textContent =    'Заїзд почався, ставки не приймаются!';
+   refs.startBtn.disabled = true;
 }
 
 function raceFinished() {
       
     refs.progressField.textContent = `Заїзд закінчівся, переміг ${raceResults[0].horse} з часом ${raceResults[0].time} ms. ` ; 
     createTrMarkUp(raceResults);
+    refs.startBtn.disabled = false;
        
 }
 
