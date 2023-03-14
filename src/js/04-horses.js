@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const horses = ['Бучифаль', 'Осадок', 'Волчьясыть', 'Дрысак', 'Кабысдох'];
+const horses = ['Бучіфаль', 'Вогінь', 'Крихітко', 'Дрысак', 'Кабысдох'];
 
 const refs = {
   startBtn: document.querySelector('.js-start-race'),
