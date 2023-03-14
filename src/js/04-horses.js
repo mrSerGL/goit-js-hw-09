@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const horses = ['Бучіфаль', 'Вогінь', 'Крихітко', 'Дрысак', 'Кабысдох'];
+const horses = ['Бучіфаль', 'Вогінь', 'Крихітко', 'Дрысак', 'Понько'];
 
 const refs = {
   startBtn: document.querySelector('.js-start-race'),
@@ -9,10 +9,9 @@ const refs = {
   tableBody: document.querySelector('.js-results-table > tbody'),
   tableSummBody: document.querySelector('.js-summary-results-table > tbody'),
   };
-
- 
   
 
+let qtyRaces = 0;
 let raceResults;
 let summaryResults;
 
@@ -77,10 +76,11 @@ function raceStarted() {
   Notify.failure(`START`);
   refs.progressField.textContent = 'Заїзд почався, ставки не приймаются!';
   refs.startBtn.disabled = true;
+  qtyRaces +=1;
 }
 
 function raceFinished() {
-  refs.progressField.textContent = `Заїзд закінчівся, переміг ${raceResults[0].horse} з часом ${raceResults[0].time} ms. `;
+  refs.progressField.textContent = `Заїзд N ${qtyRaces} закінчівся, переміг ${raceResults[0].horse} з часом ${raceResults[0].time} ms. `;
   createTrMarkUp(raceResults, refs.tableBody);
   refs.startBtn.disabled = false;
 }
